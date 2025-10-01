@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Services - Let's Create Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(270deg, #0f0f23, #1a1a2e, #0f0f23);
+            background-size: 600% 600%;
+            animation: gradientBG 20s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.5);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #a5b4fc;
+            font-weight: 300;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 45px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideFadeIn 0.8s forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card h2 {
+            color: #a5b4fc;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .card p {
+            color: #d1d5db;
+            line-height: 1.8;
+            font-size: 1.05em;
+            font-weight: 300;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card li {
+            color: #d1d5db;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #818cf8;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-size: 200% auto;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+            background-position: right center;
+        }
+
+        .promise {
+            text-align: center;
+            margin-top: 35px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-style: italic;
+            color: #d1d5db;
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+
+        .promise strong {
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+
+        .portfolio-section {
+            margin: 60px 0 50px 0;
+        }
+
+        .portfolio-section h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .portfolio-section .section-subtitle {
+            text-align: center;
+            color: #a5b4fc;
+            font-size: 1.1em;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: zoomFadeIn 0.6s forwards;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes zoomFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Transform Your Vision Into Reality</h1>
+            <p class="subtitle">Professional Photography That Tells Your Unique Story</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>Who We Are</h2>
+                <p>We're not just photographers—we're visual storytellers dedicated to capturing what makes your brand, project, or moment truly special. From commercial shoots to personal milestones, we bring creativity, technical expertise, and genuine passion to every project.</p>
+            </div>
+
+            <div class="card">
+                <h2>Our Approach</h2>
+                <p>We believe great photography starts with listening. Every client has unique challenges, aspirations, and a vision for how they want to be seen. We take time to understand your perspective before we ever pick up a camera, ensuring our work reflects your goals—not a one-size-fits-all template.</p>
+            </div>
+
+            <div class="card">
+                <h2>Let's Talk About You</h2>
+                <p>We'd love to schedule a quick call to explore:</p>
+                <ul>
+                    <li>Your specific requirements and creative vision</li>
+                    <li>Current challenges with your photography or visual identity</li>
+                    <li>What you want to achieve or improve</li>
+                    <li>How you want to stand out in your space</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="portfolio-section">
+            <h2>Our Work</h2>
+            <p class="section-subtitle">Crafting Visual Stories That Captivate</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Product Shoots/IMAGE 2025-10-01 16:50:16.jpg" alt="Product Photography - Potent Serum">
+                </div>
+                <div class="gallery-item">
+                    <img src="Product Shoots/IMAGE 2025-10-01 16:50:19.jpg" alt="Product Photography Sample 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Product Shoots/IMAGE 2025-10-01 16:50:21.jpg" alt="Product Photography Sample 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Product Shoots/IMAGE 2025-10-01 16:50:23.jpg" alt="Product Photography Sample 4">
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Stand Out?</h2>
+            <p>Let's have a conversation about your vision. No pressure, no sales pitch—just honest insights and creative solutions.</p>
+            <a href="#contact" class="cta-button">Schedule Your Free Consultation</a>
+        </div>
+
+        <div class="promise">
+            <strong>Our Commitment:</strong> If our services aren't the perfect fit for your needs, we'll point you toward the best alternatives. Your success matters more than the sale.
+        </div>
+    </div>
+</body>
+</html>
